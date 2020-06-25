@@ -34,6 +34,7 @@ test('calculator', () => {
 test('Caesar Cipher', () => {
   expect(caesar('Hello', 1)).toBe('Ifmmp');
   expect(caesar('HeLlO', 10)).toBe('RoVvY');
+  expect(caesar('HELLO', 10)).toBe('ROVVY');
   expect(caesar('H.e,l.l,o', 26)).toBe('H.e,l.l,o');
   expect(caesar('Hello', 10011)).toBe('Ifmmp');
   expect(caesar('HeLlO', -16)).toBe('RoVvY');

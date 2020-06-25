@@ -63,20 +63,23 @@ export const caesar = (string, k) => {
   if (k < 0) {
     k = 26 + k;
   }
-  string.split('').forEach(element => {
+  let array = string.split('')
+  let n = 0;
+  array.forEach(element => {
     if (alphabet.includes(element) || alphabetUpper.includes(element)) {
       const index = alphabet.indexOf(element.toLowerCase());
       if (index + k >= 26) {
         k -= 26;
       }
       if (element === element.toUpperCase()) {
-        string = string.replace(element, alphabetUpper[index + k]);
+        array[n] = alphabetUpper[index + k];
       } else {
-        string = string.replace(element, alphabet[index + k]);
+        array[n] = alphabet[index + k];
       }
     }
+    n += 1;
   });
-  return string;
+  return array.join('');
 };
 
 export const analyze = (array) => {

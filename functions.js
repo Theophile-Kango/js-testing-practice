@@ -77,3 +77,26 @@ export const caesar = (string, k) => {
   });
   return string;
 }
+
+export const analyze = (array) => {
+ 
+  if (typeof array !== 'object') {
+    return "You must give an array"
+  }
+
+  for(let i = 0 ; i < array.length; i++){
+    if(typeof array[i] !== 'number') {
+      return "You must give an array of numbers only";
+    }
+  }
+  
+
+  const object = {
+    average: array.reduce((prev, current) => prev + current, 0)/array.length,
+    min: Math.min(...array),
+    max: Math.max(...array),
+    length: array.length
+  }
+
+  return object;
+}

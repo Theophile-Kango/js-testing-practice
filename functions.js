@@ -63,7 +63,7 @@ export const caesar = (string, k) => {
   if (k < 0) {
     k = 26 + k;
   }
-  let array = string.split('')
+  const array = string.split('');
   let n = 0;
   array.forEach(element => {
     if (alphabet.includes(element) || alphabetUpper.includes(element)) {

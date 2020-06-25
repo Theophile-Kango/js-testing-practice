@@ -16,36 +16,41 @@ export const reverseString = (string) => {
 };
 
 export class Calculator {
-  static add(number1, number2) {
-    if (typeof number1 !== 'number' || typeof number2 !== 'number') {
-      return 'This is an error, invalid parameters';
-    }
-
-    return number1 + number2;
+  constructor(number1, number2) {
+    this.number1 = number1;
+    this.number2 = number2;
   }
 
-  static sub(number1, number2) {
-    if (typeof number1 !== 'number' || typeof number2 !== 'number') {
+  add() {
+    if (typeof this.number1 !== 'number' || typeof this.number2 !== 'number') {
       return 'This is an error, invalid parameters';
     }
 
-    return number1 - number2;
+    return this.number1 + this.number2;
   }
 
-  static mul(number1, number2) {
-    if (typeof number1 !== 'number' || typeof number2 !== 'number') {
+  sub() {
+    if (typeof this.number1 !== 'number' || typeof this.number2 !== 'number') {
       return 'This is an error, invalid parameters';
     }
 
-    return number1 * number2;
+    return this.number1 - this.number2;
   }
 
-  static div(number1, number2) {
-    if (typeof number1 !== 'number' || typeof number2 !== 'number' || number2 === 0) {
+  mul() {
+    if (typeof this.number1 !== 'number' || typeof this.number2 !== 'number') {
       return 'This is an error, invalid parameters';
     }
 
-    return number1 / number2;
+    return this.number1 * this.number2;
+  }
+
+  div() {
+    if (typeof this.number1 !== 'number' || typeof this.number2 !== 'number' || this.number2 === 0) {
+      return 'This is an error, invalid parameters';
+    }
+
+    return this.number1 / this.number2;
   }
 }
 

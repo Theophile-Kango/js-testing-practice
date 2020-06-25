@@ -15,14 +15,20 @@ test('reverseString', () => {
 });
 
 test('calculator', () => {
-  const calculator = new Calculator();
-  expect(calculator.add(1, 3)).toBe(4);
-  expect(calculator.sub(3, 1)).toBe(2);
-  expect(calculator.mul(4, 3)).toBe(12);
-  expect(calculator.div(15, 5)).toBe(3);
+  let calculator = new Calculator(1, 3);
+  expect(calculator.add()).toBe(4);
+  calculator = new Calculator(3, 1);
+  expect(calculator.sub()).toBe(2);
+  calculator = new Calculator(4, 3);
+  expect(calculator.mul()).toBe(12);
+  calculator = new Calculator(15, 5);
+  expect(calculator.div()).toBe(3);
+  calculator = new Calculator(15, 0);
   expect(calculator.div(15, 0)).toBe('This is an error, invalid parameters');
-  expect(calculator.sub('Hello', 0)).toBe('This is an error, invalid parameters');
-  expect(calculator.mul([1, 'yay'], 0)).toBe('This is an error, invalid parameters');
+  calculator = new Calculator('Hello', 0);
+  expect(calculator.sub()).toBe('This is an error, invalid parameters');
+  calculator = new Calculator([1, 'yay']);
+  expect(calculator.mul()).toBe('This is an error, invalid parameters');
 });
 
 test('Caesar Cipher', () => {

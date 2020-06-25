@@ -7,3 +7,12 @@ export const capitalize = (string) => {
         return "You must give a string";
       }
 }
+
+export const reverseString = (string) => {
+    try {
+        return string.split('').reverse().join('');
+      }
+      catch(message) {
+        return "You must give a string";
+      }
+}

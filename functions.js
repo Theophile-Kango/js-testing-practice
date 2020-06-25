@@ -51,3 +51,29 @@ export class Calculator {
     }
   }
 }
+
+export const caesar = (string, k) => {
+  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let alphabetUpper = alphabet.toUpperCase();
+  if(Math.abs(k) >= 26){
+    k = k % 26;
+  }
+  if( k < 0 ){
+    k = 26 + k;
+  }
+  string.split('').forEach(element => {
+    if(alphabet.includes(element) || alphabetUpper.includes(element)){
+      let index = alphabet.indexOf(element.toLowerCase());
+      if(index + k >= 26){
+        k = k - 26;
+      }
+      if(element == element.toUpperCase()){
+        string = string.replace(element, alphabetUpper[index + k]);
+      }
+      else{
+        string = string.replace(element, alphabet[index + k]);
+      }
+    }
+  });
+  return string;
+}

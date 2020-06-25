@@ -1,4 +1,4 @@
-import { capitalize, reverseString, Calculator } from './functions';
+import { capitalize, reverseString, Calculator, caesar } from './functions';
 
 test('capitalize',() => {
     expect(capitalize('javascript')).toBe('Javascript');
@@ -21,4 +21,12 @@ test('calculator', () => {
     expect(calculator.div(15, 0)).toBe('This is an error, invalid parameters');
     expect(calculator.sub('Hello', 0)).toBe('This is an error, invalid parameters');
     expect(calculator.mul([1, 'yay'], 0)).toBe('This is an error, invalid parameters');
+})
+
+test('Caesar Cipher', () => {
+    expect(caesar('Hello', 1)).toBe('Ifmmp');
+    expect(caesar('HeLlO', 10)).toBe('RoVvY');
+    expect(caesar('H.e,l.l,o', 26)).toBe('H.e,l.l,o');
+    expect(caesar('Hello', 10011)).toBe('Ifmmp');
+    expect(caesar('HeLlO', -16)).toBe('RoVvY');
 })

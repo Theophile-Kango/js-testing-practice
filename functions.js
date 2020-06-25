@@ -1,102 +1,97 @@
 export const capitalize = (string) => {
-    try {
-        string = string.replace(/^./,string[0].toUpperCase());
-        return string;
-      }
-      catch(message) {
-        return "You must give a string";
-      }
-}
+  try {
+    string = string.replace(/^./, string[0].toUpperCase());
+    return string;
+  } catch (message) {
+    return 'You must give a string';
+  }
+};
 
 export const reverseString = (string) => {
-    try {
-        return string.split('').reverse().join('');
-      }
-      catch(message) {
-        return "You must give a string";
-      }
-}
+  try {
+    return string.split('').reverse().join('');
+  } catch (message) {
+    return 'You must give a string';
+  }
+};
 
 export class Calculator {
-  add(number1, number2) {
-    if(typeof number1 !== 'number' || typeof number2 !== 'number'){
+  static add(number1, number2) {
+    if (typeof number1 !== 'number' || typeof number2 !== 'number') {
       return 'This is an error, invalid parameters';
     }
-    else{
-      return number1 + number2;
-    }
+
+    return number1 + number2;
   }
-  sub(number1, number2) {
-    if(typeof number1 !== 'number' || typeof number2 !== 'number'){
+
+  static sub(number1, number2) {
+    if (typeof number1 !== 'number' || typeof number2 !== 'number') {
       return 'This is an error, invalid parameters';
     }
-    else{
-      return number1 - number2;
-    }
+
+    return number1 - number2;
   }
-  mul(number1, number2) {
-    if(typeof number1 !== 'number' || typeof number2 !== 'number'){
+
+  static mul(number1, number2) {
+    if (typeof number1 !== 'number' || typeof number2 !== 'number') {
       return 'This is an error, invalid parameters';
     }
-    else{
-      return number1 * number2;
-    }
+
+    return number1 * number2;
   }
-  div(number1, number2) {
-    if(typeof number1 !== 'number' || typeof number2 !== 'number' || number2 === 0){
+
+  static div(number1, number2) {
+    if (typeof number1 !== 'number' || typeof number2 !== 'number' || number2 === 0) {
       return 'This is an error, invalid parameters';
     }
-    else{
-      return number1 / number2;
-    }
+
+    return number1 / number2;
   }
 }
 
 export const caesar = (string, k) => {
-  let alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let alphabetUpper = alphabet.toUpperCase();
-  if(Math.abs(k) >= 26){
-    k = k % 26;
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const alphabetUpper = alphabet.toUpperCase();
+  if (Math.abs(k) >= 26) {
+    k %= 26;
   }
-  if( k < 0 ){
+  if (k < 0) {
     k = 26 + k;
   }
   string.split('').forEach(element => {
-    if(alphabet.includes(element) || alphabetUpper.includes(element)){
-      let index = alphabet.indexOf(element.toLowerCase());
-      if(index + k >= 26){
-        k = k - 26;
+    if (alphabet.includes(element) || alphabetUpper.includes(element)) {
+      const index = alphabet.indexOf(element.toLowerCase());
+      if (index + k >= 26) {
+        k -= 26;
       }
-      if(element == element.toUpperCase()){
+      if (element === element.toUpperCase()) {
         string = string.replace(element, alphabetUpper[index + k]);
-      }
-      else{
+      } else {
         string = string.replace(element, alphabet[index + k]);
       }
     }
   });
   return string;
-}
+};
 
 export const analyze = (array) => {
- 
   if (typeof array !== 'object') {
-    return "You must give an array"
+    return 'You must give an array';
   }
 
-  for(let i = 0 ; i < array.length; i++){
-    if(typeof array[i] !== 'number') {
-      return "You must give an array of numbers only";
+  for (let i = 0; i < array.length; i += 1) {
+    if (typeof array[i] !== 'number') {
+      return 'You must give an array of numbers only';
     }
   }
-  
+
 
   const object = {
-    average: array.reduce((prev, current) => prev + current, 0)/array.length,
+    average: array.reduce((prev, current) => prev + current, 0) / array.length,
     min: Math.min(...array),
     max: Math.max(...array),
-    length: array.length
-  }
+    length: array.length,
+  };
 
   return object;
-}
+};

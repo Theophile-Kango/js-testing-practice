@@ -16,3 +16,38 @@ export const reverseString = (string) => {
         return "You must give a string";
       }
 }
+
+export class Calculator {
+  add(number1, number2) {
+    if(typeof number1 !== 'number' || typeof number2 !== 'number'){
+      return 'This is an error, invalid parameters';
+    }
+    else{
+      return number1 + number2;
+    }
+  }
+  sub(number1, number2) {
+    if(typeof number1 !== 'number' || typeof number2 !== 'number'){
+      return 'This is an error, invalid parameters';
+    }
+    else{
+      return number1 - number2;
+    }
+  }
+  mul(number1, number2) {
+    if(typeof number1 !== 'number' || typeof number2 !== 'number'){
+      return 'This is an error, invalid parameters';
+    }
+    else{
+      return number1 * number2;
+    }
+  }
+  div(number1, number2) {
+    if(typeof number1 !== 'number' || typeof number2 !== 'number' || number2 === 0){
+      return 'This is an error, invalid parameters';
+    }
+    else{
+      return number1 / number2;
+    }
+  }
+}
